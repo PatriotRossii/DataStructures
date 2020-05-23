@@ -45,6 +45,13 @@ struct DoublyLinkedList* find(char* value, struct DoublyLinkedList* root) {
     }
 }
 
+void delete(struct DoublyLinkedList* root) {
+    while(root->next != NULL) {
+        free(root);
+        root = root->next;
+    }
+}
+
 void debugOutput(struct DoublyLinkedList* root) {
     while(1) {
         printf("%s", root->value);
@@ -69,4 +76,5 @@ int main() {
     }
 
     printf("%s", find("2", root)->next->value);
+    delete(root);
 }
